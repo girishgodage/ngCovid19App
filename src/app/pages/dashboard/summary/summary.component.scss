@@ -1,0 +1,135 @@
+.row {
+    &.no-space {
+        &-bottom {
+            margin-bottom: 0;
+        }
+    }
+}
+
+.card {
+
+    &.clickable {
+        cursor: pointer;
+        border: 1px solid transparent;
+        transition: 0.3s all;
+
+        &:hover {
+            box-shadow: 5px 7px 10px rgba(0, 0, 0, 0.2);
+            border: 1px solid #333;
+        }
+    }
+
+    &-image {
+        img {
+            height: 170px;
+        }
+
+        .card-title {
+            top: 35px;
+            font-size: 45px;
+            font-weight: 700;
+            padding-left: 0 !important;
+            padding-right: 0 !important;
+            text-shadow: 2px 3px 15px rgba(0, 0, 0, 1);
+            width: 100%;
+
+            span {
+                display: block;
+            }
+
+            .today {
+                color: #FFF;
+                font-size: .8rem;
+                font-weight: 300;
+
+                b {
+                    background: rgba(0, 0, 0, 0.7);
+                    border-radius: 4px;
+                    display: inline-block;
+                    margin-top: 10px;
+                    padding: 5px;
+                    text-shadow: 2px 2px 2px #000;
+                }
+            }
+        }
+
+        @media(max-width: 576px) {
+            img {
+                height: 100px;
+            }
+
+            .card-title {
+                top: 10px;
+                font-size: 24px;
+            }
+        }
+    }
+
+    &-title {
+        font-size: 24px;
+        font-weight: 500;
+
+        @media(max-width: 576px) {
+            font-size: 16px;
+        }
+    }
+
+    @media(max-width: 576px) {
+        &-content {
+            padding: 0;
+        }
+    }
+}
+
+button {
+    border-radius: 20px;
+    margin-left: 8px;
+    font-size: 12px;
+    height: 22px;
+    line-height: 22px;
+    padding: 0 10px;
+
+    svg {
+        vertical-align: middle;
+    }
+}
+
+.more-info {
+    &-title {
+        font-size: 3rem;
+        font-weight: 100;
+        margin-top: 0;
+    
+        @media(max-width: 576px) {
+            font-size: 2.5rem;
+            text-align: center;
+            padding-top: 2rem;
+        }
+    }
+
+    tbody {
+        tr {
+            border: 0;
+        }
+    }
+
+    @media(max-width: 576px) {
+        th:after {
+            content: ':';
+        }
+        
+        thead {
+            border: 0;
+
+            tr {
+                padding-right: 0;
+            }
+        }
+
+        tbody {
+            tr {
+                padding-left: 0;
+            }
+        }
+    }
+}

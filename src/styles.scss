@@ -1,1 +1,19 @@
 /* You can add global styles to this file, and also import other style files */
+// @import url('https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css');
+@import url('https://fonts.googleapis.com/css?family=Montserrat:100,200,300,400,500,700,900&display=swap');
+
+html,
+body {
+    font: 16px 'Montserrat', sans-serif;
+}
+
+h2 {
+    color: #ee0a0a;
+    font-size: 4rem;
+    font-weight:200 !important;
+    text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.2);
+
+    @media (max-width: 576px) {
+        font-size: 2rem;
+    }
+}

@@ -1,0 +1,108 @@
+<div *ngIf="globalStats" class="my-5">
+	<div class="row no-space-bottom">
+		<div class="col s6 xl3 mb-4">
+			<div class="card clickable" routerLink="/cases">
+				<div class="card-image">
+					<img src="../../../assets/images/card-1-optimized.jpg" alt="material backgroung image">
+					<div class="card-title">
+						<span class="center-align">{{ formatterService.number(globalStats.cases) }}</span>
+						<span class="center-align today">
+							<b>Today: {{ formatterService.number(globalStats.todayCases) }}</b>
+						</span>
+					</div>
+					
+				</div>
+				<div class="card-content">
+					<h5 class="card-title center-align">Total Cases</h5>
+				</div>
+			</div>
+		</div>
+		<div class="col s6 xl3 mb-4">
+			<div class="card clickable" [routerLink]="['/cases', 'active']">
+				<div class="card-image">
+					<img src="../../../assets/images/card-blue-optimized.jpg" alt="material backgroung image">
+					<div class="card-title">
+						<span class="center-align">{{ formatterService.number(globalStats.active) }}</span>
+					</div>
+					
+				</div>
+				<div class="card-content">
+					<h5 class="card-title center-align">Active Cases</h5>
+				</div>
+			</div>
+		</div>
+		<div class="col s6 xl3 mb-4">
+			<div class="card clickable" [routerLink]="['/cases', 'recovered']">
+				<div class="card-image">
+					<img src="../../../assets/images/card-green-optimized.jpg" alt="material backgroung image">
+					<div class="card-title">
+						<span class="center-align">{{ formatterService.number(globalStats.recovered) }}</span>
+					</div>
+					
+				</div>
+				<div class="card-content">
+					<h5 class="card-title center-align">Recovered</h5>
+				</div>
+			</div>
+		</div>
+		<div class="col s6 xl3 mb-4">
+			<div class="card clickable" [routerLink]="['/cases', 'deaths']">
+				<div class="card-image">
+					<img src="../../../assets/images/card-3.svg" alt="material backgroung image">
+					<div class="card-title">
+						<span class="center-align">{{ formatterService.number(globalStats.deaths) }}</span>
+						<span class="center-align today">
+							<b>Today: {{ formatterService.number(globalStats.todayDeaths) }}</b>
+						</span>
+					</div>
+					
+				</div>
+				<div class="card-content">
+					<h5 class="card-title center-align">Deaths</h5>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col s12">
+			<div class="card">
+				<div class="card-content">
+					<h3 tabindex="0" class="more-info-title blue-text text-darken-2">Other Details:</h3>
+					<table class="more-info responsive-table">
+						<thead>
+							<tr>
+								<th scope="col">Critical</th>
+								<th scope="col">Cases per 1M</th>
+								<th scope="col">Deaths per 1M</th>
+								<th scope="col">Tests</th>
+								<th scope="col">Tests per 1M</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>{{ formatterService.number(globalStats.critical) }}</td>
+								<td>{{ formatterService.number(globalStats.casesPerOneMillion) }}</td>
+								<td>{{ formatterService.number(globalStats.deathsPerOneMillion) }}</td>
+								<td>{{ formatterService.number(globalStats.tests) }}</td>
+								<td>{{ formatterService.number(globalStats.testsPerOneMillion) }}</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col s12 right-align">
+			<small><em>Last updated: {{ formatterService.date(globalStats.updated) }}</em></small> 
+			<button class="waves-effect waves-light btn amber black-text" (click)="refreshData()">
+				<svg width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+					<path fill-rule="evenodd" d="M3.17 6.706a5 5 0 017.103-3.16.5.5 0 10.454-.892A6 6 0 1013.455 5.5a.5.5 0 00-.91.417 5 5 0 11-9.375.789z" clip-rule="evenodd"/>
+					<path fill-rule="evenodd" d="M8.147.146a.5.5 0 01.707 0l2.5 2.5a.5.5 0 010 .708l-2.5 2.5a.5.5 0 11-.707-.708L10.293 3 8.147.854a.5.5 0 010-.708z" clip-rule="evenodd"/>
+				</svg>
+				Refresh Now
+			</button>
+		</div>
+	</div>
+</div>
+<app-loading *ngIf="!globalStats"></app-loading>
